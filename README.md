@@ -14,7 +14,7 @@ This plugin is a parser plugin. After installed, you can use `multi_format` in `
 Use multiple `<pattern>` to specify multiple format.
 
     <source>
-      type udp
+      @type udp
       tag logs.multi
 
       format multi_format
