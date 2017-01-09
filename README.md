@@ -35,6 +35,10 @@ Use multiple `<pattern>` to specify multiple format.
 Available format patterns and parameters are depends on Fluentd parsers.
 See [in_tail format document](http://docs.fluentd.org/articles/in_tail) for more details.
 
+### NOTE
+
+This plugin doesn't work with `multiline` parsers because parser itself doesn't store previous lines.
+
 ## Copyright
 
 <table>
