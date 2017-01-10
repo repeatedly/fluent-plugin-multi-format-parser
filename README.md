@@ -35,6 +35,25 @@ Use multiple `<pattern>` to specify multiple format.
 Available format patterns and parameters are depends on Fluentd parsers.
 See [in_tail format document](http://docs.fluentd.org/articles/in_tail) for more details.
 
+### For v0.14
+
+This plugin handles `pattern` section manually, so v0.14's automatic parameter conversion doesn't work well.
+If you want to use this plugin with v0.14, you need to use v0.14 parser syntax like below
+
+    <filter app.**>
+      @type parser
+      key_name message
+      <parse> # Use <parse> section for parser parameters
+        @type multi_format
+        <pattern>
+          format json
+        </pattern>
+        <pattern>
+          format none
+        </pattern>
+      </parse>
+    </filter>
+
 ### NOTE
 
 This plugin doesn't work with `multiline` parsers because parser itself doesn't store previous lines.
