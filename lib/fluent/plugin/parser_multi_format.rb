@@ -17,6 +17,7 @@ module Fluent
 
           conf.elements.each { |e|
             next unless ['pattern', 'format'].include?(e.name)
+            next if e['format'].nil? && (e['@type'] == 'multi_format')
 
             parser = Plugin.new_parser(e['format'])
             parser.configure(e)
