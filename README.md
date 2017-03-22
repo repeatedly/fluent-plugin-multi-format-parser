@@ -49,6 +49,11 @@ If you want to use this plugin with v0.14, you need to use v0.14 parser syntax l
           format json
         </pattern>
         <pattern>
+          # In v0.14, format regexp and expression parameters are used for v0.12's old "format //" syntax.
+          format regexp
+          expression /...your regexp pattern.../
+        </pattern>
+        <pattern>
           format none
         </pattern>
       </parse>
