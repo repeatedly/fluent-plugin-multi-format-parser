@@ -33,7 +33,7 @@ Use multiple `<pattern>` to specify multiple format.
 `multi_format` tries pattern matching from top to bottom and returns parsed result when matched.
 
 Available format patterns and parameters are depends on Fluentd parsers.
-See [in_tail format document](http://docs.fluentd.org/articles/in_tail) for more details.
+See [parser plugin document](http://docs.fluentd.org/v0.12/articles/parser-plugin-overview) for more details.
 
 ### For v0.14
 
