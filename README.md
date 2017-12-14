@@ -42,7 +42,7 @@ Use multiple `<pattern>`s to specify multiple parser formats.
 `multi_format` tries pattern matching from top to bottom and returns parsed result when matched.
 
 Available format patterns and parameters are depends on Fluentd parsers.
-See [parser plugin](http://docs.fluentd.org/articles/parser-plugin-overview) for more details.
+See [parser plugin document](http://docs.fluentd.org/v1.0/articles/parser-plugin-overview) for more details.
 
 ### For v1.0/v0.14
 
