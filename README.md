@@ -2,6 +2,13 @@
 
 Parse format mixed logs.
 
+## Requirements
+
+| fluent-plugin-multi-format-parser | fluentd | ruby |
+|-------------------|---------|------|
+| >= 1.0.0 | >= v0.14.0 | >= 2.1 |
+|  < 1.0.0 | >= v0.12.0 | >= 1.9 |
+
 ## Installation
 
 Use RubyGems:
@@ -10,46 +17,46 @@ Use RubyGems:
 
 ## Configuration
 
-This plugin is a parser plugin. After installed, you can use `multi_format` in `format` supported plugins.
-Use multiple `<pattern>` to specify multiple format.
+This plugin is a parser plugin. After installed, you can use `multi_format` in `<parse>` supported plugins.
+Use multiple `<pattern>`s to specify multiple parser formats.
 
     <source>
       @type udp
       tag logs.multi
 
-      format multi_format
-      <pattern>
-        format apache
-      </pattern>
-      <pattern>
-        format json
-        time_key timestamp
-      </pattern>
-      <pattern>
-        format none
-      </pattern>
-    </match>
+      <parse>
+        @type multi_format
+        <pattern>
+          format apache
+        </pattern>
+        <pattern>
+          format json
+          time_key timestamp
+        </pattern>
+        <pattern>
+          format none
+        </pattern>
+      </parse>
+    </source>
 
 `multi_format` tries pattern matching from top to bottom and returns parsed result when matched.
 
 Available format patterns and parameters are depends on Fluentd parsers.
-See [parser plugin document](http://docs.fluentd.org/v0.12/articles/parser-plugin-overview) for more details.
+See [parser plugin document](http://docs.fluentd.org/v1.0/articles/parser-plugin-overview) for more details.
 
-### For v0.14
+### For v1.0/v0.14
 
-This plugin handles `pattern` section manually, so v0.14's automatic parameter conversion doesn't work well.
-If you want to use this plugin with v0.14, you need to use v0.14 parser syntax like below
+Put `<pattern>`s inside `<parse>`.
 
     <filter app.**>
       @type parser
       key_name message
-      <parse> # Use <parse> section for parser parameters
+      <parse>
         @type multi_format
         <pattern>
           format json
         </pattern>
         <pattern>
-          # In v0.14, format regexp and expression parameters are used for v0.12's old "format //" syntax.
           format regexp
           expression /...your regexp pattern.../
         </pattern>
@@ -57,6 +64,26 @@ If you want to use this plugin with v0.14, you need to use v0.14 parser syntax l
           format none
         </pattern>
       </parse>
+    </filter>
+
+### For v0.12
+
+Use `format` instead of `<parse></parse>`.
+
+    <filter app.**>
+      @type parser
+      key_name message
+
+      format multi_format
+      <pattern>
+        format json
+      </pattern>
+      <pattern>
+        format /...your regexp pattern.../
+      </pattern>
+      <pattern>
+        format none
+      </pattern>
     </filter>
 
 ### NOTE
