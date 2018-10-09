@@ -44,7 +44,7 @@ Use multiple `<pattern>`s to specify multiple parser formats.
 Available format patterns and parameters are depends on Fluentd parsers.
 See [parser plugin document](http://docs.fluentd.org/v1.0/articles/parser-plugin-overview) for more details.
 
-### For v1.0/v0.14
+### For v1.0
 
 Put `<pattern>`s inside `<parse>`.
 
