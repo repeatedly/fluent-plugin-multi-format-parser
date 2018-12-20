@@ -100,6 +100,6 @@ This plugin doesn't work with `multiline` parsers because parser itself doesn't 
     <td>Copyright</td><td>Copyright (c) 2014- Masahiro Nakagawa</td>
   </tr>
   <tr>
-    <td>License</td><td>MIT License</td>
+    <td>License</td><td>Apache License (2.0)</td>
   </tr>
 </table>
