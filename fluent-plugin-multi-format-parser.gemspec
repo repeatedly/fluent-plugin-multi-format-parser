@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.version     = File.read("VERSION").strip
   gem.authors     = ["Masahiro Nakagawa"]
   gem.email       = "repeatedly@gmail.com"
-  gem.has_rdoc    = false
+  #gem.has_rdoc    = false
   #gem.platform    = Gem::Platform::RUBY
   gem.license     = 'Apache License (2.0)'
   gem.files       = `git ls-files`.split("\n")
