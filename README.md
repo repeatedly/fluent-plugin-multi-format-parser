@@ -88,8 +88,9 @@ Use `format` instead of `<parse></parse>`.
 
 ### Adding format identity field
 
-Sometimes it may be useful to know which pattern was used. Since filter does not
-retagging, there is an option to add a format name field and/or index field.
+Sometimes it may be useful to know which pattern was used. Since pareser usage
+may not support retagging, there is an option to add a format name field and/or
+index field.
 
 Example:
 
@@ -99,13 +100,18 @@ Example:
       key_name message
       <parse>
         @type multi_format
+
         # if set, add this key to record with value being pattern format name
         # (format_name key)
         format_key 'format'
+
         # If set, add index of the matching pattern as this key (0-based)
         index_key 'parser_index'
+
         <pattern>
           format json
+          # set format name for this pattern. If unset, uses format name
+          # followed by index (in this case would be 'json#0')
           format_name 'json'
         </pattern>
         <pattern>
