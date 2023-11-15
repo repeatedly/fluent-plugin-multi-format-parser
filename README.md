@@ -105,9 +105,6 @@ Example:
         # (format_name key)
         format_key 'format'
 
-        # If set, add index of the matching pattern as this key (0-based)
-        index_key 'parser_index'
-
         <pattern>
           format json
           # set format name for this pattern. If unset, uses format name
