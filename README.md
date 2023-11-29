@@ -86,6 +86,43 @@ Use `format` instead of `<parse></parse>`.
       </pattern>
     </filter>
 
+### Adding format identity field
+
+Sometimes it may be useful to know which pattern was used. Since pareser usage
+may not support retagging, there is an option to add a format name field and/or
+index field.
+
+Example:
+
+
+    <filter app.**>
+      @type parser
+      key_name message
+      <parse>
+        @type multi_format
+
+        # if set, add this key to record with value being pattern format name
+        # (format_name key)
+        format_key 'format'
+
+        <pattern>
+          format json
+          # set format name for this pattern. If unset, uses format name
+          # followed by index (in this case would be 'json#0')
+          format_name 'json'
+        </pattern>
+        <pattern>
+          format regexp
+          format_name 'MyRefex'
+          expression /...your regexp pattern.../
+        </pattern>
+        <pattern>
+          format none
+          format_name 'unparsed'
+        </pattern>
+      </parse>
+    </filter>
+
 ### NOTE
 
 This plugin doesn't work with `multiline` parsers because parser itself doesn't store previous lines.
